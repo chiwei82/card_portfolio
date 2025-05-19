@@ -1,6 +1,5 @@
 import {
   RenderTexture,
-  OrbitControls,
   PerspectiveCamera,
   Text,
   Image,
@@ -37,8 +36,8 @@ function App() {
             <PerspectiveCamera makeDefault manual aspect={1 / 1} position={[0, 0, 5]} />
             <color attach="background" args={["white"]} />
             <ambientLight intensity={1} />
-            <Text fontSize={0.75} color="salmon">
-              Hello World!
+            <Text fontSize={0.3} color="salmon">
+              Seize every moment! ✨
             </Text>
           </RenderTexture>
         </meshStandardMaterial>
@@ -49,7 +48,7 @@ function App() {
         <Carousel />
       </Rig>
 
-      <Environment preset="dawn" background blur={0.5} />
+      <Environment preset="city" background blur={0.25} />
     </>
   )
 }
@@ -60,7 +59,7 @@ function Rig(props) {
   useFrame((state, delta) => {
     ref.current.rotation.y = -scroll.offset * (Math.PI * 2)
     state.events.update()
-    easing.damp3(state.camera.position, [-state.pointer.x * 2, state.pointer.y + 1.5, 15], 0.3, delta)
+    easing.damp3(state.camera.position, [-state.pointer.x * 2, state.pointer.y +1, 11], 0.3, delta)
     state.camera.lookAt(0, 0, 0)
   })
   return <group ref={ref} {...props} />
@@ -110,7 +109,7 @@ function Card({ url, ...props }) {
       onPointerOut={pointerOut}
       {...props}
     >
-      <bentPlaneGeometry args={[0.12, 1.2, 1.2, 60, 60]} />
+      <bentPlaneGeometry args={[0.12, 1.2, 1.2, 40, 40]} />
     </Image>
   )
 }
