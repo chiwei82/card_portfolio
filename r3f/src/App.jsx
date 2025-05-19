@@ -67,7 +67,7 @@ function Rig(props) {
 
 function Carousel({ radius = 4 }) {
   const images = useMemo(() => {
-    const modules = import.meta.glob('/src/assets/*.jpg', { eager: true })
+    const modules = import.meta.glob('/src/assets/*.webp', { eager: true })
     return Object.values(modules).map((mod) => mod.default)
   }, [])
 
